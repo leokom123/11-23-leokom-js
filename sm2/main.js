@@ -9,6 +9,6 @@ alert("тебе меньше 20")
 }
 }
 let c = confirm("хочешь учить js?")
-if (ok){
+if (c){
 alert("good")
 }
