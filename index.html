@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./main.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Ddos</title>
+</head>
+<body>
+  <div class="wrapper">
+    <button id="clearButton">Удалить все дочерние элементы</button>
+</div>
+
+<div class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <p>Это модальное окно!</p>
+    </div>
+</div>
+<button id="openModalButton">Открыть модальное окно</button>
+<script src="modal.js"></script>
+</body>
+
+<script>
+
+const clearButton = document.getElementById('clearButton');
+const modal = document.querySelector('.modal');
+const openModalButton = document.getElementById('openModalButton');
+const closeButton = document.querySelector('.close-button');
+
+clearButton.addEventListener('click', () => {
+    const wrapper = document.querySelector('.wrapper');
+    while (wrapper.firstChild) {
+        wrapper.removeChild(wrapper.firstChild);
+    }
+});
+
+openModalButton.addEventListener('click', () => {
+    modal.classList.add('open');
+});
+
+closeButton.addEventListener('click', () => {
+    modal.classList.remove('open');
+});
+</script>
+</html>
