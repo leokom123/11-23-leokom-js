@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./modal.js" defer></script>
+  <link rel="stylesheet" href="./style.css">
+  <title>fetch() | onsubmit | async/await</title>
+</head>
+
+<body>
+  <div class="container">
+    <form id="productForm">
+      <h2>Создать продукт</h2>
+      <div class="input_container">
+        <label>Название</label>
+        <input type="text" name="title" placeholder="Название">
+      </div>
+      <div class="input_container">
+        <label>Цена</label>
+        <input type="text" name="price" placeholder="Цена">
+      </div>
+      <div class="input_container">
+        <label>Описание</label>
+        <input type="text" name="description" placeholder="Описание">
+      </div>
+      <button type="submit">Создать продукт</button>
+    </form>
+  </div>
+
+
+  <script>
+    const productForm = document.querySelector('#productForm');
+
+    productForm.addEventListener('submit', async (event) => {
+
+
+      event.preventDefault(); 
+
+      
+     
+     
+
+      try {
+        const call = await fetch('https://fakestoreapi.com/products', {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json' 
+          },
+          body: JSON.stringify({
+            title: productForm.elements.title.value,
+            price: productForm.elements.price.value,
+            description: productForm.elements.description.value
+          })
+        });
+          const a= await call.json(); 
+                    console.log(a); 
+
+      } catch (error) {
+        console.error('Error:', error); 
+      }
+    });
