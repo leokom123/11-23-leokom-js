@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./public/css/style.css">
+  <script src="./public/js/script.js" defer></script>
+  <title>1</title>
+</head>
+
+<body>
+  <header class="header" >
+    <div class="header-inner">
+        <p class="header-text">Just header</p>
+        <div class="nav">
+          <a href="#">Home</a>
+          <a href="#">Search</a>
+          <a href="#">About us</a>
+          <a href="#">Help</a>
+        </div>
+        <div class="burger">
+          <span onclick="burger(event)">
+            <img src="./public/image/menu_24dp_5F6368_FILL0_wght400_GRAD0_opsz24.svg" alt="burger">
+          </span>
+        </div>
+        
+    </div>
+  </header>
+  <main>
+    
+    <div class="profile-inner">
+        <div class="profile">
+            <img src="./public/image/photo_2023-10-19_17.35-pic4_zoom-1500x1500-62360-pic_square_200x200-200x200-35869.jpg" alt="fredurov" class="profile-img">
+            <p>Fred Urov</p>
+        </div>
+    </div>
+    
+    <div class="modal-btn">
+      <button onclick="openModal()">
+        <p class="">Не нажимать сюда!</p>
+      </button>
+    </div>
+
+    <div class="modal-window">
+      <p class="">Вы хотите удалить ФРЕДА УРОВА???</p>
+      <button onclick="closeModal()">ЖМИ СЮДА!!!</button>
+      <button class="remove-btn" onclick="removeFREDUROV()">удалить</button>
+    </div>
+
+  </main>
+</body>
+
+</html>
