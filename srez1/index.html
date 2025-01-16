@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mango - Мебель</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Шапка сайта -->
+    <header>
+        <div class="logo">Mango</div>
+        <div class="burger-menu">☰</div>
+    </header>
+
+<div class="container">
+
+    <!-- Баннер со слайдером -->
+    <section class="slider">
+        <div class="slide active">
+            <img src="img/divan.jpg" alt="Слайд 1">
+            <div class="caption">Акция на диваны!</div>
+        </div>
+        <div class="slide">
+            <img src="img/stol.jpg" alt="Слайд 2">
+            <div class="caption">Скидки на столы!</div>
+        </div>
+        <div class="slide">
+            <img src="img/stul.jpg" alt="Слайд 3">
+            <div class="caption">Промо на стулья!</div>
+        </div>
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+    </section>
+
+    <!-- Каталог товаров -->
+    <section class="catalog">
+        <div class="name">
+            <h2>Наши товары</h2>
+        </div>
+        <div class="product-card">
+            <img src="img/divan.jpg" alt="Товар 1">
+            <h3>Диван</h3>
+            <p>Цена: 20,000₽</p>
+            <button>В корзину</button>
+        </div>
+        <div class="product-card">
+            <img src="img/stol1.jpg" alt="Товар 2">
+            <h3>Стол</h3>
+            <p>Цена: 15,000₽</p>
+            <button>В корзину</button>
+        </div>
+        <div class="product-card">
+            <img src="img/stul1.jpg" alt="Товар 3">
+            <h3>Стул</h3>
+            <p>Цена: 5,000₽</p>
+            <button>В корзину</button>
+        </div>
+        <div class="product-card">
+            <img src="img/kreslo.jpg" alt="Товар 4">
+            <h3>Кресло</h3>
+            <p>Цена: 10,000₽</p>
+            <button>В корзину</button>
+        </div>
+    </section>
+
+    <!-- Блок "О нас" -->
+    <section class="about-us">
+        <h2>О нас</h2>
+        <p>Компания Mango предлагает широкий ассортимент мебели для вашего дома. Мы ценим качество и комфорт.</p>
+        <img src="img/onas.jpg" alt="О нас">
+    </section>
+
+    <!-- Блок "Ответы на вопросы" -->
+    <section class="faq">
+        <h2>Ответы на вопросы</h2>
+        <div class="accordion">
+            <div class="accordion-item">
+                <h3 class="accordion-header">Как сделать заказ?</h3>
+                <div class="accordion-content">Вы можете сделать заказ через наш сайт или позвонить нам.</div>
+            </div>
+            <div class="accordion-item">
+                <h3 class="accordion-header">Как производится доставка?</h3>
+                <div class="accordion-content">Доставка осуществляется в течение 3-5 рабочих дней.</div>
+            </div>
+            <div class="accordion-item">
+                <h3 class="accordion-header">Можно ли вернуть товар?</h3>
+                <div class="accordion-content">Да, вы можете вернуть товар в течение 14 дней.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="footer-logo">Mango</div>
+        <div class="footer-contacts">
+            Телефон: 
+            <button id="contact-button">📞 Позвонить</button>
+        </div>
+    </footer>
+
+    <!-- Модальное окно -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Телефон: +7 (123) 456-78-90</p>
+            <a href="tel:+71234567890" class="call-button">Позвонить</a>
+        </div>
+    </div>
+
+    <script src="main.js">
+
+    // Слайдер
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+
+    document.querySelector('.next').addEventListener('click', () => {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % totalSlides;
+        slides[currentSlide].classList.add('active');
+    });
+
+    document.querySelector('.prev').addEventListener('click', () => {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        slides[currentSlide].classList.add('active');
+    });
+
+    // Аккордеон
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+accordionHeaders.forEach(header => {
+    header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        
+        // Переключаем класс 'active' для контента
+        content.classList.toggle('active');
+    });
+});
+
+
+    // Модальное окно
+    const contactButton = document.getElementById('contact-button');
+    const modal = document.getElementById('modal');
+    const closeModal = document.querySelector('.close');
+
+    contactButton.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    closeModal.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    </script>
+
+</div>
+
+</body>
+</html>
